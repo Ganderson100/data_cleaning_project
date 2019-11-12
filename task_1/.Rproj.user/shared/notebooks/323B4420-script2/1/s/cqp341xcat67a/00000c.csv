@@ -1,0 +1,8 @@
+"0",""
+"0","# More than 50 seconds"
+"0","average_points_400m_greater_50 <- clean_decathlon %>%"
+"0","  select(x400m, points) %>%"
+"0","  filter(x400m > 50) %>%"
+"0","  summarise(average_points2 = mean(points))"
+"0","  "
+"0","average_points_400m_greater_50"

@@ -1,0 +1,17 @@
+"0","# load in cleaned data"
+"0","library(here)"
+"0","here::here()"
+"1","[1]"
+"1"," ""/Users/greganderson/codeclan_work/data_cleaning_project/task_2"""
+"1","
+"
+"0","clean_cake <- read_csv(here(""clean_data/clean_cake.csv""))"
+"2","Parsed with column specification:
+cols(
+  Cake = [31mcol_character()[39m,
+  code = [31mcol_character()[39m,
+  value = [32mcol_double()[39m,
+  ingredient = [31mcol_character()[39m,
+  measure = [31mcol_character()[39m
+)
+"

@@ -1,0 +1,7 @@
+"0","# What was the average 100m time in each competition?"
+"0","average_100m <- clean_decathlon %>%"
+"0","  select(athlete_name, competition, x100m) %>%"
+"0","  group_by(competition) %>%"
+"0","  summarise(average_100m = mean(x100m))"
+"0",""
+"0","average_100m"

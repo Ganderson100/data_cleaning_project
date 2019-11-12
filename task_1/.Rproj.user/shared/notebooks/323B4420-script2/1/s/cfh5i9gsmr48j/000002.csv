@@ -1,0 +1,28 @@
+"0","# load in cleaned data"
+"0","library(here)"
+"2","here() starts at /Users/greganderson/codeclan_work/data_cleaning_project/task_1
+"
+"0","here::here()"
+"1","[1]"
+"1"," ""/Users/greganderson/codeclan_work/data_cleaning_project/task_1"""
+"1","
+"
+"0","clean_decathlon <- read_csv(here(""clean_data/clean_decathlon.csv""))"
+"2","Parsed with column specification:
+cols(
+  athlete_name = [31mcol_character()[39m,
+  x100m = [32mcol_double()[39m,
+  long_jump = [32mcol_double()[39m,
+  shot_put = [32mcol_double()[39m,
+  high_jump = [32mcol_double()[39m,
+  x400m = [32mcol_double()[39m,
+  x110m_hurdle = [32mcol_double()[39m,
+  discus = [32mcol_double()[39m,
+  pole_vault = [32mcol_double()[39m,
+  javeline = [32mcol_double()[39m,
+  x1500m = [32mcol_double()[39m,
+  rank = [32mcol_double()[39m,
+  points = [32mcol_double()[39m,
+  competition = [31mcol_character()[39m
+)
+"

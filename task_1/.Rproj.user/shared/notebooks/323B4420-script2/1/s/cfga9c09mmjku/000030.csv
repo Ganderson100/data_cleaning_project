@@ -1,0 +1,9 @@
+"0","# Who had the longest long jump seen in the data?"
+"0",""
+"0","longest_jump <- clean_decathlon %>%"
+"0","  select(athlete_name, long_jump) %>%"
+"0","  arrange(desc(long_jump)) %>%"
+"0","  top_n(1)"
+"2","Selecting by long_jump
+"
+"0","longest_jump"

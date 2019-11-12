@@ -1,0 +1,10 @@
+"0","# Who had the highest total points across both competitions?"
+"0","highest_total_points <- clean_decathlon %>%"
+"0","  select(athlete_name, competition, points) %>%"
+"0","  group_by(athlete_name) %>%"
+"0","  summarise(total_points = max(sum(points))) %>%"
+"0","  arrange(desc(total_points)) %>%"
+"0","  top_n(1)"
+"2","Selecting by total_points
+"
+"0","highest_total_points"

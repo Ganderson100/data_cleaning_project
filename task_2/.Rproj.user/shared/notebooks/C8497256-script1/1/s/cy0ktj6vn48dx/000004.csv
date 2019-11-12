@@ -1,0 +1,4 @@
+"0","# remove ""BM"" column as it contains no data"
+"0","cake_ingredients2 <- cake_ingredients %>% "
+"0","  select(-BM)"
+"0","head(cake_ingredients2)"

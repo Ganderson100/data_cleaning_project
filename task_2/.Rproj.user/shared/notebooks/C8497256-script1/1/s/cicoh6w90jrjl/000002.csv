@@ -1,0 +1,27 @@
+"0","library(here)"
+"0",""
+"0","#test where the top level of the project directory is "
+"0","here::here()"
+"1","[1]"
+"1"," ""/Users/greganderson/codeclan_work/data_cleaning_project/task_2"""
+"1","
+"
+"0","#use this to set the path to the data files"
+"0","cake_ingredients <- read_csv(here(""raw_data/cake-ingredients-1961.csv""))"
+"2","Parsed with column specification:
+cols(
+  .default = col_double(),
+  Cake = [31mcol_character()[39m,
+  BM = [33mcol_logical()[39m
+)
+"
+"2","See spec(...) for full column specifications.
+"
+"0","cake_ingredients_code <- read_csv(here(""raw_data/cake_ingredient_code.csv""))"
+"2","Parsed with column specification:
+cols(
+  code = [31mcol_character()[39m,
+  ingredient = [31mcol_character()[39m,
+  measure = [31mcol_character()[39m
+)
+"

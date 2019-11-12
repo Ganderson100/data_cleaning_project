@@ -1,0 +1,5 @@
+"0","# Join the two tables using a left join on the ""code"" variable"
+"0",""
+"0","clean_cake <- left_join(cake_ingredients3, cake_ingredients_code, ""code"")"
+"0",""
+"0","clean_cake"

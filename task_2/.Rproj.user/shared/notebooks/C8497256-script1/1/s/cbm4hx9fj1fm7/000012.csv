@@ -1,0 +1,8 @@
+"0","# change from wide to long"
+"0",""
+"0","cake_ingredients3 <- cake_ingredients2 %>%"
+"0","  pivot_longer(-Cake, "
+"0","               names_to = ""code"", "
+"0","               values_to = ""value"")"
+"0","  "
+"0","cake_ingredients3"

@@ -1,0 +1,5 @@
+"0","# setting data in the name column to lower case"
+"0","library(stringr)"
+"0","dirty_decathlon4 <- dirty_decathlon3 %>%"
+"0","  mutate(athlete_name = str_to_lower(athlete_name))"
+"0","dirty_decathlon4"

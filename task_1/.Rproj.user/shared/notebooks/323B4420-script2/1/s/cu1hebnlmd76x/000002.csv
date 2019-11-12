@@ -1,0 +1,7 @@
+"0","# What was the shot-put scores for the top three competitors in each competition?"
+"0","top_3_shot_put_by_comp <- clean_decathlon %>%"
+"0","  select(athlete_name, rank, competition, shot_put) %>%"
+"0","  filter(rank <= 3) %>%"
+"0","  group_by(competition)"
+"0",""
+"0","top_3_shot_put_by_comp"

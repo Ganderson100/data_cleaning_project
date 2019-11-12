@@ -1,0 +1,60 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r}
+library(tidyverse)
+```
+
+```{r}
+# load in cleaned data
+library(here)
+here::here()
+clean_cake <- read_csv(here("clean_data/clean_cake.csv"))
+```
+
+```{r}
+view(clean_cake)
+```
+
+```{r}
+# Analysis
+```
+
+```{r}
+# Which cake has the most cocoa in it?
+
+most_cocoa <- clean_cake %>%
+  select(Cake, value, ingredient) %>%
+  filter(ingredient == "Cocoa") %>%
+  arrange(desc(value))
+
+most_cocoa
+```
+
+```{r}
+# For sponge cake, how many cups of ingredients are used in total?
+sponge_cake_cups <- clean_cake %>%
+  select(Cake, value, ingredient, measure) %>%
+  filter(Cake == "Sponge") %>%
+  arrange(desc(value))
+
+sponge_cake_cups
+```
+
+```{r}
+# How many ingredients are measured in teaspoons?
+
+```
+
+```{r}
+# Which cake has the most unique ingredients?
+
+```
+
+```{r}
+# Which ingredients are used only once?
+
+```
+
