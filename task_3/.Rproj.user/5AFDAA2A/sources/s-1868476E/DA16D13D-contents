@@ -1,0 +1,121 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r}
+library(tidyverse)
+```
+
+```{r}
+# load in cleaned data
+library(here)
+here::here()
+clean_birds <- read_csv(here("clean_data/clean_birds.csv"))
+```
+
+```{r}
+clean_birds
+view(clean_birds)
+```
+
+```{r}
+# Analysis
+```
+
+```{r}
+# Which bird had the most individual sightings?
+
+# ordedred table of number of sightings 
+most_sightings <- clean_birds %>%
+  select(species, count) %>%
+  group_by(species) %>%
+  summarise(number_of_sightings = n()) %>%
+  arrange(desc(number_of_sightings)) 
+
+most_sightings
+
+# the most individual sightings
+top_n(most_sightings, 1)
+
+```
+
+```{r}
+# Which bird had the highest total count?
+
+# ordedred table of count 
+highest_total_count <- clean_birds %>%
+  select(species, count) %>%
+  group_by(species) %>%
+  summarise(total_count = sum(count)) %>%
+  arrange(desc(total_count)) %>%
+  drop_na()
+
+highest_total_count
+
+# the bird with the highest total count
+top_n(highest_total_count, 1)
+
+
+```
+
+```{r}
+# Which bird had the highest total count above a latitude of -30?
+# ordedred table of count 
+highest_total_count_above_lat_minus30 <- clean_birds %>%
+  select(species, lat, count) %>%
+  group_by(species) %>%
+  filter(lat > -30) %>%
+  summarise(total_count = sum(count)) %>%
+  arrange(desc(total_count)) %>%
+  drop_na()
+  
+highest_total_count_above_lat_minus30
+
+# the bird with the highest total count above a latitude of -30
+top_n(highest_total_count_above_lat_minus30, 1)
+
+```
+
+```{r}
+# How many different types of birds were only ever seen in groups of 1?
+
+lonely_birds <- clean_birds %>%
+  select(species, count) %>%
+  group_by(species) %>%
+  summarise(birds_seen_in_groups_of_1 = n()) %>%
+  filter(birds_seen_in_groups_of_1 == 1)
+
+lonely_birds
+
+# count of the number of different bird species seen in groups of one
+ count(lonely_birds)
+
+```
+
+```{r}
+# How many penguins were seen? (Hint: there are many types of penguin)
+
+pingu_number_by_sub_species <- clean_birds %>%
+  select(species, count) %>%
+  group_by(species) %>%
+  filter(str_detect(species, "penguin")) %>%
+  drop_na() %>%
+  summarise(many_seen = sum(count)) %>%
+  arrange(desc(many_seen)) 
+
+pingu_number_by_sub_species
+
+
+overall_pingus <- clean_birds %>%
+  select(species, count) %>%
+  group_by(species) %>%
+  filter(str_detect(species, "penguin")) %>%
+  drop_na() %>%
+  summarise(many_seen = sum(count)) %>%
+  summarise(total_count = sum(many_seen))
+
+overall_pingus
+
+```
+

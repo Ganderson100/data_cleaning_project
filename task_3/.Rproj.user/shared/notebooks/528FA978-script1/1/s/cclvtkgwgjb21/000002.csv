@@ -1,0 +1,6 @@
+"0","here::here()"
+"1","[1]"
+"1"," ""/Users/greganderson/codeclan_work/data_cleaning_project/task_3"""
+"1","
+"
+"0","write_csv(clean_birds, here(""clean_data/clean_birds.csv""))"

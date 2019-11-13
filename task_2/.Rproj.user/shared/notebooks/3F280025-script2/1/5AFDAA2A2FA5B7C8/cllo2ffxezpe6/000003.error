@@ -1,0 +1,1 @@
+{"frames":[],"message":"Error in clean_cake %>% select(Cake, value, ingredient, measure) %>% filter(Cake ==  : \n  could not find function \"%>%\"\n"}

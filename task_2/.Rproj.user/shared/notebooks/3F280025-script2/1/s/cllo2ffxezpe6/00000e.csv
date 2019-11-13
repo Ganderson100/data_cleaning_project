@@ -1,0 +1,7 @@
+"0","# For sponge cake, how many cups of ingredients are used in total?"
+"0","sponge_cake_cups <- clean_cake %>%"
+"0","  select(Cake, value, ingredient, measure) %>%"
+"0","  filter(Cake == ""Sponge"", measure == ""cup"") %>%"
+"0","  arrange(desc(value))"
+"0",""
+"0","sponge_cake_cups"

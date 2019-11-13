@@ -1,0 +1,7 @@
+"0","# How many ingredients are measured in teaspoons?"
+"0","ingredients_measured_in_teaspoons <- clean_cake %>%"
+"0","  select(Cake, value, ingredient, measure) %>%"
+"0","  filter(measure == ""teaspoon"") %>%"
+"0","  summarise(number_ingredients_measured_teaspoons = length(measure))"
+"0",""
+"0","ingredients_measured_in_teaspoons"

@@ -1,0 +1,132 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r}
+library(readr)
+library(tidyverse)
+library(readxl)
+```
+
+```{r}
+library(here)
+
+#test where the top level of the project directory is 
+here::here()
+
+#use this to set the path to the data files
+candy_2015 <- read_xlsx(here("raw_data/boing-boing-candy-2015.xlsx"))
+candy_2016 <- read_xlsx(here("raw_data/boing-boing-candy-2016.xlsx"))
+candy_2017 <- read_xlsx(here("raw_data/boing-boing-candy-2017.xlsx"))
+
+```
+
+
+```{r}
+dim(candy_2015)
+dim(candy_2016)
+dim(candy_2017)
+```
+
+```{r}
+names(candy_2015)
+names(candy_2016)
+names(candy_2017)
+```
+
+```{r}
+candy_2015
+candy_2016
+candy_2017
+```
+
+```{r}
+# clean names
+
+library(janitor)
+# 2005
+candy_2015_1 <- clean_names(candy_2015)
+names(candy_2015_1)
+# 2006
+candy_2016_1 <- clean_names(candy_2016)
+names(candy_2016_1)
+# 2007
+candy_2017_1 <- clean_names(candy_2017)
+names(candy_2017_1)
+```
+
+
+
+```{r}
+# wide to long format.  
+candy_2015_2 <- candy_2015_1 %>%
+  pivot_longer(cols = 4:96, 
+               names_to = "candy_name", 
+               values_to = "rating")
+
+candy_2016_2 <- candy_2016_1 %>%
+  pivot_longer(cols = 7:106,
+   names_to = "candy_name", 
+               values_to = "rating")
+
+candy_2017_2 <- candy_2017_1 %>%
+  pivot_longer(cols = 7:109,
+   names_to = "candy_name", 
+               values_to = "rating")
+
+```
+
+```{r}
+# drop unwanted columns
+
+# 2015
+candy_2015_3 <- candy_2015_2 %>%
+  select(how_old_are_you, candy_name, rating, are_you_going_actually_going_trick_or_treating_yourself)
+candy_2015_3
+
+# 2016
+candy_2016_3 <- candy_2016_2 %>%
+  select(how_old_are_you, candy_name, rating, are_you_going_actually_going_trick_or_treating_yourself, which_country_do_you_live_in)
+candy_2016_3
+
+# 2017
+candy_2017_3 <- candy_2017_2 %>%
+  select(q3_age, candy_name, rating, q1_going_out, q4_country)
+candy_2017_3
+
+
+```
+
+
+```{r}
+# Rename columns so that they align across the 3 years of data
+
+# 2015
+candy_2015_4 <- candy_2015_3 %>%
+  rename(age = "how_old_are_you", 
+        candy_name = "candy_name",
+        rating = "rating",
+        trick_or_treating = "are_you_going_actually_going_trick_or_treating_yourself") 
+names(candy_2015_4)
+
+# 2016
+candy_2016_4 <- candy_2016_3 %>%
+  rename(age = "how_old_are_you", 
+        candy_name = "candy_name",
+        rating = "rating",
+        trick_or_treating = "are_you_going_actually_going_trick_or_treating_yourself",
+        country = "which_country_do_you_live_in")
+names(candy_2016_4)
+
+# 2017
+candy_2017_4 <- candy_2017_3 %>%
+  rename(age = "q3_age", 
+        candy_name = "candy_name",
+        rating = "rating",
+        trick_or_treating = "q1_going_out",
+        country = "q4_country")
+names(candy_2017_4)
+
+```
+

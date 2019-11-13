@@ -1,0 +1,5 @@
+"0",""
+"0","# select the following columns to keep in the ship data"
+"0","ship_data2 <- ship_data %>% "
+"0","  select(""RECORD"", ""LAT"")"
+"0","ship_data2"

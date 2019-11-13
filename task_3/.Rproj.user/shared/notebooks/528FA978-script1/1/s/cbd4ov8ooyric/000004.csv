@@ -1,0 +1,5 @@
+"0","# Join the ship data to the bird data using the record variable"
+"0",""
+"0","clean_birds <- left_join(bird_data3, ship_data3, ""record"")"
+"0",""
+"0","clean_birds"

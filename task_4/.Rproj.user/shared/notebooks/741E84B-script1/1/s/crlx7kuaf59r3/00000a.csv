@@ -1,0 +1,6 @@
+"0",""
+"0","# 2017"
+"0","candy_2017_3 <- candy_2017_2 %>%"
+"0","  select(q3_age, candy_name, rating, q1_going_out, q4_country)"
+"0",""
+"0","candy_2017_3"

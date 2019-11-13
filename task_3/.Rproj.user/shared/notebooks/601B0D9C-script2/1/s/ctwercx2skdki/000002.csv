@@ -1,0 +1,18 @@
+"0","# load in cleaned data"
+"0","library(here)"
+"2","here() starts at /Users/greganderson/codeclan_work/data_cleaning_project/task_3
+"
+"0","here::here()"
+"1","[1]"
+"1"," ""/Users/greganderson/codeclan_work/data_cleaning_project/task_3"""
+"1","
+"
+"0","clean_birds <- read_csv(here(""clean_data/clean_birds.csv""))"
+"2","Parsed with column specification:
+cols(
+  record = [32mcol_double()[39m,
+  species = [31mcol_character()[39m,
+  count = [32mcol_double()[39m,
+  lat = [32mcol_double()[39m
+)
+"

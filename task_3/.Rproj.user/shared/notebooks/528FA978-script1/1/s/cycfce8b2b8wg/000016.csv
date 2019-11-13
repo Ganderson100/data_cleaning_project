@@ -1,0 +1,6 @@
+"0","# We don't need all the variables for this data to answer the analysis questions."
+"0",""
+"0","# select the following columns to keep in the bird data"
+"0","bird_data2 <- bird_data %>% "
+"0","  select(RECORD, ""Species common name (taxon [AGE / SEX / PLUMAGE PHASE])"", COUNT)"
+"0","bird_data2"

@@ -1,0 +1,5 @@
+"0","# remove NA's"
+"0","cake_ingredients4 <- cake_ingredients3 %>% "
+"0","  drop_na()"
+"0",""
+"0","cake_ingredients4"

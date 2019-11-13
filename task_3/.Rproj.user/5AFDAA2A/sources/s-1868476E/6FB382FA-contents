@@ -1,0 +1,94 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r}
+library(readr)
+library(tidyverse)
+library(readxl)
+```
+
+```{r}
+library(here)
+
+#test where the top level of the project directory is 
+here::here()
+
+#use this to set the path to the data files
+bird_data <- read_excel(here("raw_data/seabirds.xls"), sheet = "Bird data by record ID")
+
+ship_data <- read_excel(here("raw_data/seabirds.xls"), sheet = "Ship data by record ID")
+```
+
+```{r}
+dim(bird_data)
+head(bird_data, 10)
+tail(bird_data, 10)
+names(bird_data)
+view(bird_data)
+```
+
+
+```{r}
+dim(ship_data)
+head(ship_data, 10)
+tail(ship_data, 10)
+names(ship_data)
+view(ship_data)
+```
+
+```{r}
+# We don't need all the variables for this data to answer the analysis questions.
+
+# select the following columns to keep in the bird data
+bird_data2 <- bird_data %>% 
+  select(RECORD, "Species common name (taxon [AGE / SEX / PLUMAGE PHASE])", COUNT)
+bird_data2
+
+# select the following columns to keep in the ship data
+ship_data2 <- ship_data %>% 
+  select("RECORD", "LAT")
+ship_data2
+
+```
+
+```{r}
+# rename the column headings of the bird data
+bird_data3 <- bird_data2 %>%
+  rename(record = "RECORD", 
+        species = "Species common name (taxon [AGE / SEX / PLUMAGE PHASE])",
+        count = "COUNT") 
+
+names(bird_data3)
+```
+
+```{r}
+# rename the column headings of the ship data
+
+ship_data3 <- ship_data2 %>%
+  rename(record = "RECORD", 
+        lat = "LAT") 
+
+names(ship_data3)
+```
+
+
+```{r}
+# Join the ship data to the bird data using the record variable
+
+clean_birds <- left_join(bird_data3, ship_data3, "record")
+
+clean_birds
+
+```
+
+```{r}
+# I was maybe a bit Edward Scissor Hands cutting out variables.  What I'm left with allows me to answer the analysis questions but not much else.
+```
+
+```{r}
+here::here()
+write_csv(clean_birds, here("clean_data/clean_birds.csv"))
+```
+

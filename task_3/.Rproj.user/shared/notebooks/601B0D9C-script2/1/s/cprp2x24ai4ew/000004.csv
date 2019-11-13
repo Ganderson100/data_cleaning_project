@@ -1,0 +1,5 @@
+"0",""
+"0","# the bird with the highest total count above a latitude of -30"
+"0","top_n(highest_total_count_above_lat_minus30, 1)"
+"2","Selecting by total_count
+"
