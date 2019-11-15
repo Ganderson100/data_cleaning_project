@@ -1,0 +1,7 @@
+"0","# ordedred table of number of ratings "
+"0","total_candy_ratings <- clean_candy %>%"
+"0","  select(candy_name, rating) %>%"
+"0","  drop_na() %>%"
+"0","  summarise(number_of_ratings = n()) "
+"0",""
+"0","total_candy_ratings"

@@ -1,0 +1,8 @@
+"0","# convert the age column to an integer to remove the ones where respondens have added characters.  This may treat some as NAs where a year has been provided within the text but I don't know how to extract a number from within a character string"
+"0",""
+"0","candy_combined2 <- candy_combined %>%"
+"0","  mutate(age = as.integer(age)) %>%"
+"0","  select(age, candy_name, rating, trick_or_treating, country, gender, year)"
+"2","NAs introduced by coercion"
+"2","NAs introduced by coercion to integer range"
+"0","view(candy_combined2)"

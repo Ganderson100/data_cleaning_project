@@ -1,0 +1,450 @@
+\documentclass[]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\hypersetup{unicode=true,
+            pdftitle={Task 4 - Halloween Candy Data},
+            pdfauthor={Greg Anderson, DE2 Data Analysis},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+%%% Use protect on footnotes to avoid problems with footnotes in titles
+\let\rmarkdownfootnote\footnote%
+\def\footnote{\protect\rmarkdownfootnote}
+
+%%% Change title format to be more compact
+\usepackage{titling}
+
+% Create subtitle command for use in maketitle
+\providecommand{\subtitle}[1]{
+  \posttitle{
+    \begin{center}\large#1\end{center}
+    }
+}
+
+\setlength{\droptitle}{-2em}
+
+  \title{Task 4 - Halloween Candy Data}
+    \pretitle{\vspace{\droptitle}\centering\huge}
+  \posttitle{\par}
+    \author{Greg Anderson, DE2 Data Analysis}
+    \preauthor{\centering\large\emph}
+  \postauthor{\par}
+      \predate{\centering\large\emph}
+  \postdate{\par}
+    \date{14/11/2019}
+
+
+\begin{document}
+\maketitle
+
+\hypertarget{introduction}{%
+\section{Introduction}\label{introduction}}
+
+This report includes:
+
+\begin{itemize}
+\tightlist
+\item
+  A brief introduction to the haloween candy dataset\\
+\item
+  A list of assumptions made\\
+\item
+  The steps taken to clean the data\\
+\item
+  The answers to the questions presented in the task brief\\
+\item
+  Other interesting analyses or conclusions
+\end{itemize}
+
+\includegraphics{images/candycorn.png}
+
+\hypertarget{the-dataset}{%
+\subsection{The dataset}\label{the-dataset}}
+
+The halloween candy data is taken from a survey primarily used to
+produce hierarchy data of the most popular candy.
+
+The raw data was held in three .xlsx files covering survey responses
+from 2015, 2016 and 2017.
+
+The raw data and analysis can be accessed on the
+\href{https://www.scq.ubc.ca/so-much-candy-data-seriously/}{Science
+Creative Quarterly} website.
+
+\hypertarget{assumptions}{%
+\subsection{Assumptions}\label{assumptions}}
+
+Project assumptions:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  The focus of the analysis was candy related questions from the
+  survey.\\
+\item
+  Analysis of other survey questions was not required.\\
+\item
+  The data extracted and cleaned for analysis were:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    age\\
+  \item
+    candy\\
+  \item
+    whether the respondent was trick or treating or not\\
+  \item
+    gender\\
+  \item
+    candy rating\\
+  \item
+    country\\
+  \item
+    year
+  \end{itemize}
+\end{enumerate}
+
+\hypertarget{cleaning-the-data}{%
+\subsection{Cleaning the data}\label{cleaning-the-data}}
+
+A number of steps were taken to address significant data quality issues.
+
+The steps included:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  An initial cleaning of the column names using the package
+  \emph{`Janitor'} and the function `clean\_names()' to remove special
+  characters and spaces and to convert to lower case.\\
+\item
+  Converting the data from wide to long format using the
+  `pivot\_longer()' function from the `Tidyr' package. Specific column
+  numbers were selected in each data set that contained candy names to
+  be included in the pivot.\\
+\item
+  Dropped unwanted columns from the survey responses that were not
+  required for analysis.\\
+\item
+  Renaming column names to age, candy\_name, rating,
+  trick\_or\_treating, country, gender, \& year.\\
+\item
+  Added ``gender'' and ``country'' columns to the 2015 data with NAs
+\item
+  Added a ``year'' column to all three files in case further time series
+  analysis was required.\\
+\item
+  Orderded the columns across the three files in preparation for
+  binding.\\
+\item
+  Bound the rows across three files using `rbind()'.\\
+\item
+  The `age' column was changed from character type to integer to remove
+  responses provided as a text string rather than a number e.g. ``old''.
+  NAs replaced such instances.\\
+\item
+  For the `candy\_name' column in 2017 the following text was removed
+  using str\_replace() - ``q6\_''
+\item
+  Hard coding changes to the ``country'' column to address the
+  considerable variation in the way some countries were provided in
+  survey responses. Also changed a significant number of responses to NA
+  where responses were provided that were not recognised countries.\\
+\item
+  Identified outliers in the age column e.g 1800. Decided to replace any
+  ages over 120 with NA.
+\end{enumerate}
+
+\hypertarget{analysis}{%
+\section{Analysis}\label{analysis}}
+
+\hypertarget{question-1}{%
+\subsection{Question 1}\label{question-1}}
+
+\textbf{What is the total number of candy ratings given across the three
+years. (number of candy ratings, not number of raters. Don't count
+missing values)}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# ordedred table of number of ratings }
+\NormalTok{total_candy_ratings <-}\StringTok{ }\NormalTok{clean_candy }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{select}\NormalTok{(candy_name, rating) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{drop_na}\NormalTok{() }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{number_of_ratings =} \KeywordTok{n}\NormalTok{()) }
+
+\NormalTok{total_candy_ratings}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 1 x 1
+##   number_of_ratings
+##               <int>
+## 1            727256
+\end{verbatim}
+
+\hypertarget{question-2}{%
+\subsection{Question 2}\label{question-2}}
+
+\textbf{What was the average age of people who are going out trick or
+treating and the average age of people not going trick or treating?}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# average age trick or treating}
+\NormalTok{average_age_trick_or_treating <-}\StringTok{ }\NormalTok{clean_candy }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{select}\NormalTok{(age, trick_or_treating) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{drop_na}\NormalTok{() }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{filter}\NormalTok{(trick_or_treating }\OperatorTok{==}\StringTok{ "Yes"}\NormalTok{) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{trick_or_treating_average_age =} \KeywordTok{mean}\NormalTok{(age))}
+
+\NormalTok{average_age_trick_or_treating}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 1 x 1
+##   trick_or_treating_average_age
+##                           <dbl>
+## 1                          35.2
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# average age not trick or treating}
+\NormalTok{average_age_not_trick_or_treating <-}\StringTok{ }\NormalTok{clean_candy }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{select}\NormalTok{(age, trick_or_treating) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{drop_na}\NormalTok{() }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{filter}\NormalTok{(trick_or_treating }\OperatorTok{==}\StringTok{ "No"}\NormalTok{) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{not_trick_or_treating_average_age =} \KeywordTok{mean}\NormalTok{(age))}
+  
+\NormalTok{average_age_not_trick_or_treating}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 1 x 1
+##   not_trick_or_treating_average_age
+##                               <dbl>
+## 1                              39.3
+\end{verbatim}
+
+\hypertarget{question-3}{%
+\subsection{Question 3}\label{question-3}}
+
+\textbf{For each of joy, despair and meh, which candy bar received the
+most of these ratings?}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{joy_ratings <-}\StringTok{ }\NormalTok{clean_candy }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{select}\NormalTok{(candy_name, rating) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{drop_na}\NormalTok{() }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{filter}\NormalTok{(rating }\OperatorTok{==}\StringTok{ "JOY"}\NormalTok{) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{group_by}\NormalTok{(candy_name) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{number_of_joy_ratings =} \KeywordTok{max}\NormalTok{(}\KeywordTok{length}\NormalTok{(rating))) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{top_n}\NormalTok{(}\DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Selecting by number_of_joy_ratings
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{meh_ratings <-}\StringTok{ }\NormalTok{clean_candy }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{select}\NormalTok{(candy_name, rating) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{drop_na}\NormalTok{() }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{filter}\NormalTok{(rating }\OperatorTok{==}\StringTok{ "MEH"}\NormalTok{) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{group_by}\NormalTok{(candy_name) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{number_of_meh_ratings =} \KeywordTok{max}\NormalTok{(}\KeywordTok{length}\NormalTok{(rating))) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{top_n}\NormalTok{(}\DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Selecting by number_of_meh_ratings
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{despair_ratings <-}\StringTok{ }\NormalTok{clean_candy }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{select}\NormalTok{(candy_name, rating) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{drop_na}\NormalTok{() }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{filter}\NormalTok{(rating }\OperatorTok{==}\StringTok{ "DESPAIR"}\NormalTok{) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{group_by}\NormalTok{(candy_name) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{number_of_despair_ratings =} \KeywordTok{max}\NormalTok{(}\KeywordTok{length}\NormalTok{(rating))) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{top_n}\NormalTok{(}\DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Selecting by number_of_despair_ratings
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{joy_ratings}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 1 x 2
+##   candy_name               number_of_joy_ratings
+##   <chr>                                    <int>
+## 1 any_full_sized_candy_bar                  7250
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{meh_ratings}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 1 x 2
+##   candy_name number_of_meh_ratings
+##   <chr>                      <int>
+## 1 lollipops                   1508
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{despair_ratings}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 1 x 2
+##   candy_name        number_of_despair_ratings
+##   <chr>                                 <int>
+## 1 broken_glow_stick                      7542
+\end{verbatim}
+
+\hypertarget{question-4}{%
+\subsection{Question 4}\label{question-4}}
+
+\textbf{How many people rated Starburst as despair?}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{starburst_despair <-}\StringTok{ }\NormalTok{clean_candy }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{select}\NormalTok{(candy_name, rating) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{filter}\NormalTok{(candy_name }\OperatorTok{==}\StringTok{ "starburst"}\NormalTok{) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{filter}\NormalTok{(rating }\OperatorTok{==}\StringTok{ "DESPAIR"}\NormalTok{) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{number_starburst_rated_despair =} \KeywordTok{n}\NormalTok{())}
+
+\NormalTok{starburst_despair}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 1 x 1
+##   number_starburst_rated_despair
+##                            <int>
+## 1                           1867
+\end{verbatim}
+
+\hypertarget{conclusions}{%
+\section{Conclusions}\label{conclusions}}
+
+Recommend improving data collection practices to at least prevent
+respondents from entering free text.
+
+
+\end{document}

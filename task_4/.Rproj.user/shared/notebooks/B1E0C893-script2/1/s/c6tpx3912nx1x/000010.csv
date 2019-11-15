@@ -1,0 +1,8 @@
+"0","# average age trick or treating"
+"0","average_age_trick_or_treating <- clean_candy %>%"
+"0","  select(age, trick_or_treating) %>%"
+"0","  drop_na() %>%"
+"0","  filter(trick_or_treating == ""Yes"") %>%"
+"0","  summarise(trick_or_treating_average_age = mean(age))"
+"0",""
+"0","average_age_trick_or_treating"

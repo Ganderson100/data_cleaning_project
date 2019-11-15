@@ -1,0 +1,4 @@
+"0","age_outliers <- candy_combined5 %>%"
+"0","  select(age, is_outlier) %>%"
+"0","  filter(is_outlier == TRUE)"
+"0","age_outliers"

@@ -1,0 +1,7 @@
+"0","starburst_despair <- clean_candy %>%"
+"0","  select(candy_name, rating) %>%"
+"0","  filter(candy_name == ""starburst"") %>%"
+"0","  filter(rating == ""DESPAIR"") %>%"
+"0","  summarise(number_starburst_rated_despair = n())"
+"0",""
+"0","starburst_despair"

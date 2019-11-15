@@ -1,0 +1,9 @@
+"0",""
+"0","age_zscores <- !is.na(scores(candy_combined5$age))"
+"0","is_outlier <- age_zscores > 3 | age_zscores < -3"
+"0",""
+"0","age_outliers <- candy_combined5 %>%"
+"0","  drop_na() %>%"
+"0","  mutate(is_outlier = is_outlier)"
+"2","Error: Column `is_outlier` must be length 274150 (the number of rows) or one, not 902870
+"

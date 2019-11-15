@@ -1,0 +1,27 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1573657883447.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "425750435",
+    "id" : "5C848137",
+    "lastKnownWriteTime" : 1573810250,
+    "last_content_update" : 1573810250716,
+    "path" : "~/codeclan_work/data_cleaning_project/task_4/documentation_and_analysis/script2.Rmd",
+    "project_path" : "documentation_and_analysis/script2.Rmd",
+    "properties" : {
+        "chunk_output_type" : "inline",
+        "cursorPosition" : "21,0",
+        "scrollLine" : "10",
+        "tempName" : "Untitled1"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

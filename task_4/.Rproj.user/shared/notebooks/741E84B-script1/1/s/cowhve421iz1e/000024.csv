@@ -1,0 +1,6 @@
+"0","# Looks like there are some dodgy outliers in the age column"
+"0",""
+"0","library(outliers)"
+"0",""
+"0","ggplot(candy_combined5, aes(x = ""age"", y = age)) +"
+"0","    geom_boxplot()"

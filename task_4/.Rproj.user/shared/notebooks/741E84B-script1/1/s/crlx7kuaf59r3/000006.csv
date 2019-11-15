@@ -1,7 +1,0 @@
-"0","# drop unwanted columns"
-"0",""
-"0","# 2015"
-"0","candy_2015_3 <- candy_2015_2 %>%"
-"0","  select(how_old_are_you, candy_name, rating, are_you_going_actually_going_trick_or_treating_yourself)"
-"0",""
-"0","candy_2015_3"

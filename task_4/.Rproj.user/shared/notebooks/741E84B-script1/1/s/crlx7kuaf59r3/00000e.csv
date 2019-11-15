@@ -1,0 +1,5 @@
+"0",""
+"0","# 2016"
+"0","candy_2016_3 <- candy_2016_2 %>%"
+"0","  select(how_old_are_you, candy_name, rating, are_you_going_actually_going_trick_or_treating_yourself, which_country_do_you_live_in, your_gender)"
+"0","candy_2016_3"
